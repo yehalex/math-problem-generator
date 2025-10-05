@@ -81,6 +81,7 @@ Complete the TODO sections in the main page component:
 Create a new API route that handles:
 
 #### POST /api/math-problem (Generate Problem)
+
 - Use Google's Gemini AI to generate a math word problem
 - The AI should return JSON with:
   ```json
@@ -93,6 +94,7 @@ Create a new API route that handles:
 - Return the problem and session ID to the frontend
 
 #### POST /api/math-problem/submit (Submit Answer)
+
 - Receive the session ID and user's answer
 - Check if the answer is correct
 - Use AI to generate personalized feedback based on:
@@ -130,19 +132,23 @@ When submitting your assessment, provide:
 2. **Live Demo URL**: Your Vercel deployment
 3. **Supabase Credentials**: Add these to your README for testing:
    ```
-   SUPABASE_URL: [Your Supabase Project URL]
-   SUPABASE_ANON_KEY: [Your Supabase Anon Key]
+   SUPABASE_URL: [Your Supabase Project URL]https://eqwbicpweholneufmuop.supabase.co
+   SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxd2JpY3B3ZWhvbG5ldWZtdW9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk1NTMzNDMsImV4cCI6MjA3NTEyOTM0M30.AgQFzXZFOYS3MWeHHsAQD0RYu8u6AwKC8pajGkY5hGg
    ```
 
 ## Implementation Notes
 
-*Please fill in this section with any important notes about your implementation, design decisions, challenges faced, or features you're particularly proud of.*
+_Please fill in this section with any important notes about your implementation, design decisions, challenges faced, or features you're particularly proud of._
 
 ### My Implementation:
 
-- 
-- 
-- 
+- single direction data flow: **User Click → API Route → Service Layer → Gemini/Database → Response**
+  - Frontend: plain UI handles display and user input
+  - API Route: HTTP wrapper, does not contain logic
+  - Services: Business logic. Prompts, parsing, database interaction
+- lib\config\curriculum.ts
+  - structured curriculum as Static Config. Does not change often, does not live in database.
+  - allows for aware, topic specific prompt
 
 ## Additional Features (Optional)
 
